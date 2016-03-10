@@ -65,6 +65,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /*********** Global Styles ***********/
 /********** 全局样式可添加在此处 *********/
 @font-face{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-family: 'Source Code Pro';
   src:url('http://fontstatic.useso.com/s/sourcecodepro/v6/mrl8jkM18OlOQN8JLgasD5bPFduIYtoLzwST68uhz_Y.woff2');
 }
