@@ -64,11 +64,26 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /*********** Global Styles ***********/
 /********** 全局样式可添加在此处 *********/
+@font-face{
+  font-family: 'Source Code Pro';
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  src:url('http://fontstatic.useso.com/s/sourcecodepro/v6/mrl8jkM18OlOQN8JLgasD5bPFduIYtoLzwST68uhz_Y.woff2');
+}
+body{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+}
 .container {
   width: 100%;
   max-width: 1170px;
   margin-left: auto;
   margin-right: auto;
+}
+.clearfloat{
+  height: 0;
+  content: '';
+  display: block;
+  clear: both;
 }
 
 /********* Global Styles end ***********/
@@ -76,6 +91,53 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /*** 自己的样式建议添加 namespace- 以避免被后面其他人的样式覆盖 ***/
 /*** 如：.qz-block .qz-text ***/
 /*********** 张磊磊 ***********/
+#top .wrapper{
+  height:651px;
+  width: 100%;
+  background-color: #000;
+}
+#top .wrapper .container{ 
+  width: 1170px;
+  height: 651px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+#top .top-header{
+      padding-top: 40px;
+}
+#top .top-header img{
+  float: left;
+}
+
+#top  .top-menu{
+  float: right;
+}
+#top .nav>li{
+  padding: 10px;
+  float: left;
+  color: #fff;
+  font-family: 'Source Code Pro';
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  font-size:17px; 
+}
+#top .window li{
+  margin-bottom: 10px; 
+}
+#top .window{
+  position:relative;
+  height:37px;
+  overflow: hidden;
+}
+#top .window ul{
+  position: relative;
+}
+#top .window .bold{
+  font-weight:bold;
+}
+
+
 
 /*********** 乔震 ************/
 
