@@ -5,9 +5,10 @@ $(document).ready(function() {
 	/*********** 乔震 ************/
 
 	/*********** 鲍鲍 ************/
+
 	(function($) {
 
-		$.fn.fadeSlider = function(options) {
+		$.fadeSlider = function(el, options) {
 
 			// 默认参数
 			var defaults = {
@@ -17,7 +18,7 @@ $(document).ready(function() {
 
 			var $slides = [],
 				$nav,
-				$slider = this,
+				$slider = $(el),
 				settings = $.extend({},defaults,options),
 				namespace = 'fs-',
 				methods = {};
@@ -27,15 +28,23 @@ $(document).ready(function() {
 
 				// 初始化
 				init: function() {
-					$slides = $slider.find('slides li');
+					$slides = $slider.find('.slides li');
 					$nav = methods.createNav();
+					methods.setup();
+				},
+
+				// 启用
+				setup: function() {
+
+					methods.createDOM();
+					
 				},
 
 				// 创建DOM
 				createDOM: function() {
 
-					$slides = $slides.map(function(item, index) {
-						var $slide = item;
+					$slides = $slides.map(function(index, item) {
+						var $slide = $(item);
 						$slide.addClass('slide');
 						return $slide;
 					});
@@ -51,13 +60,38 @@ $(document).ready(function() {
 						$li.push($('<li><a href="#"></a></li>'));
 					}
 
-					$nav = $('<ol class="'namespace+'nav">'+$li.join('')+'</ol>');
+					$nav = $('<ol class="'+namespace+'nav"></ol>');
+					$.each($li, function(index, el) {
+						$(this).appendTo($nav);
+					});
 					return $nav;
 				}
 			};
 
-			
+			methods.init();
 		}
+		
+
+		// 外部调用此拓展方法
+		$.fn.fadeSlider = function(options) {
+			if(typeof options === 'object' || typeof options === 'undefined') {
+				return this.each(function(index, el) {
+					$.fadeSlider(this,options);
+				});
+			}
+
+		}
+	})(jQuery);
+
+	(function($) {
+		$(window).load(function() {
+
+			/* Act on the event */
+			$('.karl-slider').fadeSlider({
+				fadeSpeed: 1000
+			});
+		});
+		
 	})(jQuery);
 	/*********** 小鑫鑫 **********/
 
