@@ -79,7 +79,7 @@ body{
   margin-left: auto;
   margin-right: auto;
 }
-.clearfloat{
+.clearfloat:after{
   height: 0;
   content: '';
   display: block;
