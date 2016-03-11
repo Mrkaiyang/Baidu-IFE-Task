@@ -16,12 +16,17 @@ $(document).ready(function() {
 				displayDuration: 5000		// 播放停留时间
 			}
 
-			var $slides = [],
+			var curSlide = 0,
 				$nav,
+				$navItems,
+				$slides,
 				$slider = $(el),
 				settings = $.extend({},defaults,options),
 				namespace = 'fs-',
 				methods = {};
+
+			// 计时器
+			var timer = 0;
 
 			// 私有方法
 			methods = {
@@ -30,22 +35,34 @@ $(document).ready(function() {
 				init: function() {
 					$slides = $slider.find('.slides li');
 					$nav = methods.createNav();
+					$navItems = $nav.find('li');
 					methods.setup();
 				},
 
 				// 启用
 				setup: function() {
-
 					methods.createDOM();
-					
+					timer = setInterval(methods.playNext, settings.displayDuration);
+
+					// 触发手动导航
+					$('.'+namespace+'nav').on('click','li',function(){
+						var index = $(this).index('.'+namespace+'nav li');
+
+						// 清空计时器
+						clearInterval(timer);
+						methods.play(index);
+
+						// 重启计时器
+						timer = setInterval(methods.playNext, settings.displayDuration);
+					})
 				},
 
 				// 创建DOM
 				createDOM: function() {
-
-					$slides = $slides.map(function(index, item) {
+					$slides.map(function(index, item) {
 						var $slide = $(item);
 						$slide.addClass('slide');
+						if(index == 0) { $slide.addClass('active'); }
 						return $slide;
 					});
 					$slider.append($nav);
@@ -63,9 +80,28 @@ $(document).ready(function() {
 					$nav = $('<ol class="'+namespace+'nav"></ol>');
 					$.each($li, function(index, el) {
 						$(this).appendTo($nav);
+						if(index == 0) { $(this).addClass('active'); }
 					});
 					return $nav;
+				},
+
+				// 播放指定slide
+				// @parameter index: slide索引
+				play: function(index) {
+					if(index>=0 && index<$slides.length && index!=curSlide) {
+						$slides.removeClass('active').eq(index).addClass('active');
+						$navItems.removeClass('active').eq(index).addClass('active');
+						curSlide = index;
+					}
+				},
+
+				// 播放下一张slide
+				playNext: function() {
+
+					var nextIndex = curSlide+1>=$slides.length ? 0:curSlide+1;
+					methods.play(nextIndex);
 				}
+
 			};
 
 			methods.init();
@@ -86,10 +122,24 @@ $(document).ready(function() {
 	(function($) {
 		$(window).load(function() {
 
-			/* Act on the event */
+			// 初始化slider
 			$('.karl-slider').fadeSlider({
 				fadeSpeed: 1000
 			});
+
+			// gallery-box触发事件
+			$('.karl-slider').on('click', '.cover', function(event) {
+				var $img = $(this).parent().find('img');
+				$('.gallery-modal img').attr('src',$img.attr('src'));
+				$('.gallery-modal').fadeIn(400);
+			});
+
+			// modal
+			$('.gallery-modal').on('click',function(event) {
+				$(this).fadeOut(400);
+			}).on('click','img',function(event) {
+				event.stopPropagation();
+			})
 		});
 		
 	})(jQuery);
