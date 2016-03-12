@@ -169,6 +169,7 @@ body{
   margin: 0 5px;
   display: inline-block;
   vertical-align: middle;
+  cursor: pointer;
   *vertical-align: auto;
   *zoom: 1;
   *display: inline;

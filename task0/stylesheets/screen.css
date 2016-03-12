@@ -69,6 +69,7 @@
   height: 16px;
   background-color: #7c7c7c;
   margin: 0 5px;
+  cursor: pointer;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
