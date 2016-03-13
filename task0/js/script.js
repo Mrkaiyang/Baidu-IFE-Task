@@ -12,7 +12,6 @@ $(document).ready(function() {
 
 			// 默认参数
 			var defaults = {
-				fadeSpeed: 500,		// 淡入淡出速度
 				displayDuration: 5000		// 播放停留时间
 			}
 
@@ -123,9 +122,7 @@ $(document).ready(function() {
 		$(window).load(function() {
 
 			// 初始化slider
-			$('.karl-slider').fadeSlider({
-				fadeSpeed: 1000
-			});
+			$('.karl-slider').fadeSlider();
 
 			// gallery-box触发事件
 			$('.karl-slider').on('click', '.cover', function(event) {
