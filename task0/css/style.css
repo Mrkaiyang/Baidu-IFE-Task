@@ -65,8 +65,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /*********** Global Styles ***********/
 /********** 全局样式可添加在此处 *********/
 @font-face{
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Century Gothic;
   font-family: 'Source Code Pro';
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   src:url('http://fontstatic.useso.com/s/sourcecodepro/v6/mrl8jkM18OlOQN8JLgasD5bPFduIYtoLzwST68uhz_Y.woff2');
 }
 body{
@@ -86,12 +87,86 @@ body{
   clear: both;
 }
 
-
 /********* Global Styles end ***********/
 
 /*** 自己的样式建议添加 namespace- 以避免被后面其他人的样式覆盖 ***/
 /*** 如：.qz-block .qz-text ***/
 /*********** 张磊磊 ***********/
+#top .wrapper{
+  height:651px;
+  width: 100%;
+  background-color: #000;
+}
+#top .wrapper .container{ 
+  width: 1170px;
+  height: 651px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+#top .top-header{
+  padding-top: 40px;
+}
+#top .top-header img{
+  float: left;
+}
+
+#top  .top-menu{
+  float: right;
+}
+#top .nav>li{
+  padding: 10px;
+  float: left;
+  color: #fff;
+  font-family: 'Source Code Pro';
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  font-size:17px; 
+}
+#top .window li{
+  margin-bottom: 10px; 
+}
+#top .window{
+  position:relative;
+  height:34px;
+  overflow: hidden;
+}
+#top .window ul{
+  cursor: pointer;
+  position: relative;
+}
+#top .window .bold{
+  font-weight:bold;
+}
+#top  .banner h1{
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  font-size:70px; 
+  }
+#top  .banner h3{
+  letter-spacing: 2px;
+  font-weight: 400;
+  font-family: 'Source Code Pro';
+  font-size:17px; 
+}
+#top  .banner{
+  margin-top: 114px;
+  font-family: Century Gothic;
+  color: #fff;
+  text-align: center;
+}
+#top .banner span{
+  display: block;
+  width: 71px;
+  height: 33px;
+  margin: 0 auto;
+  margin-top: 175px;
+  background-image: url(../images/banner-arrow.png);
+  cursor: pointer;
+}
+
+
 
 /*********** 乔震 ************/
 
