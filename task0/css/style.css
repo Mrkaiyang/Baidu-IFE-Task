@@ -95,6 +95,104 @@ body{
 
 /*********** 乔震 ************/
 
+.qzservice{
+  background-color: #fff;
+  padding: 20px 10px;
+  width: 100%;
+}
+
+.qzservice-head{
+  text-align: center;
+}
+
+.qzservice-head h2{
+  color:#000;
+  font-size:2.7em;
+  font-family:'Century Gothic';
+  margin-bottom:14px;
+  letter-spacing:1.3px;
+  font-weight:600;
+}
+
+.qzservice-head h3{
+  color: #000;
+  font-size:1.2em;
+  word-spacing:2px;
+  letter-spacing:1.2px;
+  font-weight:600;
+  font-family: 'Source Code Pro'; 
+}
+
+.qzservice-grids{
+  margin-top: 20px;
+}
+
+.qzservice-grid{
+  float: left;
+  text-align: center;
+  width: 33%;
+  min-width: 250px;
+  padding: 20px 20px;
+}
+
+.qzservice-grid h2{
+color:#000;
+font-family:Century Gothic;
+margin-top:1.5em;
+font-weight:600;
+font-size:2.1em;
+}
+
+.qzservice-grid h3{
+color:#000;
+font-size:1.2em;
+margin-top:1em;
+word-spacing:1.5px;
+font-family: 'Source Code Pro';
+}
+
+.qzservice-grid img{
+  width: 50%;
+  height:auto;
+}
+
+.qzclearfloat:after{
+  display: block;
+  content: '';
+  height: 0;
+  clear: both;
+  zoom:1;
+}
+
+.qzauthor{
+  background-color: #000;
+  max-width: 100%;
+  padding: 70px 0;
+  text-align: center;
+}
+
+.qzauthor h2{
+  color:#fff;
+  font-size:2em;
+  letter-spacing:1px;
+  font-weight:400;
+  font-family: 'Source Code Pro';
+  text-transform:uppercase;
+  padding: 0 15px;
+}
+
+.qzauthor h2 span{
+display:inline-block;
+margin-top:15px;
+}
+
+.qzauthor h3{
+color:#fff;
+font-weight:600;
+font-size:2.1em;
+margin-top:2em;
+font-family:'Century Gothic';
+}
 /*********** 鲍鲍 ************/
 .karl-container {
   padding: 6% 0;
