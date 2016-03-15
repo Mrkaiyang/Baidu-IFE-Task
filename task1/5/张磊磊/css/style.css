@@ -1,0 +1,11 @@
+#top{
+height: 60px;
+width:100%;
+background: #333;
+}
+#top .logo img{
+	position: relative;
+	top: 7.5px;
+	height: 45px;
+	padding-left: 40px;
+}
