@@ -1,11 +1,91 @@
+*{
+	font-family:Helvetica, Arial, STHeiti, Malgun Gothic, AppleGothic,'Microsoft Yahei','宋体'!important;
+}
+
+
+
+
+.clearfloat:after{
+  height: 0;
+  content: '';
+  display: block;
+  clear: both;
+}
 #top{
-height: 60px;
-width:100%;
-background: #333;
+	height: 60px;
+	width:100%;
+	background: #333;
+	min-width: 550px;
+}
+#top .logo{
+	float: left;
 }
 #top .logo img{
 	position: relative;
 	top: 7.5px;
 	height: 45px;
 	padding-left: 40px;
+}
+#top .nav{
+	float: right;
+	padding-right:40px; 
+}
+#top .nav li{
+	float: left;
+	line-height: 60px;
+	padding-left:20px; 
+}
+#top .nav li a{
+	color:#fff;
+	text-decoration: none;
+}
+#content{
+	background: #eee;
+	padding: 20px 440px 20px 20px;
+	min-width: 550px;
+}
+#content .ct-left{
+	float: left;
+	width: 100%;
+	background: #fff;
+
+}
+#content .ct-right{
+	float: left;
+	width: 400px;
+	height:100px;
+	margin-left: -400px;
+	border:1px solid #bbb;
+	position: relative;
+	right: -420px;
+	background: #fff;
+}
+#content  .article1,.article2{
+	border-left: 1px solid #bbb;
+	border-top: 1px solid #bbb;
+	border-right: 2px solid #999;
+	border-bottom: 2px solid #999;
+	padding: 20px;
+}
+#content h1{
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom:20px; 
+}
+#content h2{
+	font-size: 18px;
+	margin-bottom:20px; 
+	font-weight: bold;
+	color: #666;
+}
+#content h3{
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom:20px; 
+	font-weight: bold;
+	color: #666;
+}
+#content p{ 
+text-indent: 2em; 
+line-height: 30px;
 }
