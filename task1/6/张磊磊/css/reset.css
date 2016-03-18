@@ -59,6 +59,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 * {
   box-sizing: border-box;
 }
-
+a{
+  text-decoration: none;
+}
 /********* CSS reset ends *********/
 
