@@ -1,6 +1,10 @@
+*{
+  box-sizing:border-box;
+}
+
+
 .contanier{
   display:flex;
-  padding: 20px;
   align-items:center;
   justify-content:space-between;
   flex-wrap:wrap;
@@ -9,6 +13,7 @@
   width:150px;
   border:1px solid #f00;
   margin:20px 0;
+  padding: 20px;
 
 }
 .item1{
@@ -25,6 +30,10 @@
    border:1px solid #0f0!important;
 }
 @media screen and (max-width: 640px) {
+  .contanier{
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
    .item4{
      order:1
    }
