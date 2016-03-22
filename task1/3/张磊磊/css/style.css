@@ -57,8 +57,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 * {
-  box-sizing: border-box;
-}
+  box-sizing:border-box;
+  -moz-box-sizing:border-box; /* Firefox */
+  -webkit-box-sizing:border-box; /* Safari */}
 /*三栏样式*/
 .clearfloat:after{
   height: 0;
@@ -80,19 +81,26 @@ div{
 .container{
   background: #eee;
   padding: 20px 160px 20px 240px;
-  width: 100%;
-  min-width: 685px;
-
+  min-width: 684px;
+  overflow: hidden;
 }
  .container .middle{
   float: left;
   padding: 20px;
   background: #fff;
+  width: 100%;
  }
- .container .middle h1{
+ .container .middle h1,h2{
   font-size: 24px;
   font-weight: 400;
   margin-bottom: 15px;
+ }
+ .container .middle p{
+    margin-bottom: 15px;
+ }
+ .container .middle ul{
+  list-style: disc;
+  margin-left: 20px;
  }
  .left{
   width: 200px;
@@ -102,6 +110,7 @@ div{
   position: relative;
   left: -220px;
   background: #fff;
+  padding: 20px;
  }
  .right{
   width: 120px;
@@ -111,4 +120,13 @@ div{
   background: #fff;
   position: relative;
   right: -140px;
+  padding: 20px;
  }
+  .left .logo,.picture{
+    width: 80px;
+    height: 80px;
+    background: #eee;
+  }
+  .right  .picture{
+    margin-bottom: 20px;
+  }
