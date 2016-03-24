@@ -68,7 +68,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-family: Century Gothic;
   font-family: 'Source Code Pro';
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8712a225942e5c5746ae804d7be8b8d9aeb0e4ab
   src:url('http://fontstatic.useso.com/s/sourcecodepro/v6/mrl8jkM18OlOQN8JLgasD5bPFduIYtoLzwST68uhz_Y.woff2');
 }
 body{
@@ -171,8 +174,325 @@ body{
 
 /*********** 乔震 ************/
 
+.qzservice{
+  background-color: #fff;
+  padding: 20px 10px;
+  width: 100%;
+}
+
+.qzservice-head{
+  text-align: center;
+}
+
+.qzservice-head h2{
+  color:#000;
+  font-size:2.7em;
+  font-family:'Century Gothic';
+  margin-bottom:14px;
+  letter-spacing:1.3px;
+  font-weight:600;
+}
+
+.qzservice-head h3{
+  color: #000;
+  font-size:1.2em;
+  word-spacing:2px;
+  letter-spacing:1.2px;
+  font-weight:600;
+  font-family: 'Source Code Pro'; 
+}
+
+.qzservice-grids{
+  margin-top: 20px;
+}
+
+.qzservice-grid{
+  float: left;
+  text-align: center;
+  width: 33%;
+  min-width: 250px;
+  padding: 20px 20px;
+}
+
+.qzservice-grid h2{
+color:#000;
+font-family:Century Gothic;
+margin-top:1.5em;
+font-weight:600;
+font-size:2.1em;
+}
+
+.qzservice-grid h3{
+color:#000;
+font-size:1.2em;
+margin-top:1em;
+word-spacing:1.5px;
+font-family: 'Source Code Pro';
+}
+
+.qzservice-grid img{
+  width: 50%;
+  height:auto;
+}
+
+.qzclearfloat:after{
+  display: block;
+  content: '';
+  height: 0;
+  clear: both;
+  zoom:1;
+}
+
+.qzauthor{
+  background-color: #000;
+  max-width: 100%;
+  padding: 70px 0;
+  text-align: center;
+}
+
+.qzauthor h2{
+  color:#fff;
+  font-size:2em;
+  letter-spacing:1px;
+  font-weight:400;
+  font-family: 'Source Code Pro';
+  text-transform:uppercase;
+  padding: 0 15px;
+}
+
+.qzauthor h2 span{
+display:inline-block;
+margin-top:15px;
+}
+
+.qzauthor h3{
+color:#fff;
+font-weight:600;
+font-size:2.1em;
+margin-top:2em;
+font-family:'Century Gothic';
+}
 /*********** 鲍鲍 ************/
+.karl-container {
+  padding: 6% 0;
+}
+.karl-container .title {
+  font-size: 37px;
+  color: #000;
+  text-align: center;
+}
+.karl-container .gallery-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.83);
+  z-index: 100;
+}
+.karl-container .gallery-modal:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  height: 100%;
+  margin-right: -0.25em;
+}
+.karl-container .gallery-modal img {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  width: 30%;
+  border: 20px #666 solid;
+}
 
+.karl-slider .slides {
+  position: relative;
+}
+.karl-slider .slide {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 40px 0;
+  text-align: center;
+  opacity: 0;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 0;
+}
+.karl-slider .slide.active {
+  position: relative;
+  opacity: 1;
+  z-index: 1;
+}
+.karl-slider .fs-nav {
+  text-align: center;
+}
+.karl-slider .fs-nav li {
+  width: 16px;
+  height: 16px;
+  background-color: #7c7c7c;
+  margin: 0 5px;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+}
+.karl-slider .fs-nav li.active {
+  background-color: #000;
+}
+.karl-slider .gallery-box {
+  margin: 13px;
+  width: 22%;
+  float: left;
+  position: relative;
+}
+.karl-slider .gallery-box img {
+  width: 100%;
+  height: auto;
+  border: 10px solid #000;
+  z-index: 1;
+}
+.karl-slider .gallery-box .cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110%;
+  height: 110%;
+  display: block;
+  background-color: #000;
+  opacity: 0;
+  z-index: 0;
+  cursor: pointer;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.karl-slider .gallery-box .cover span {
+  display: block;
+  width: 0;
+  height: 0;
+  background: url(../images/karl/link.png) no-repeat center;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.karl-slider .gallery-box:hover .cover {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  z-index: 2;
+}
+.karl-slider .gallery-box:hover .cover span {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 992px) {
+  .karl-slider .gallery-box {
+    width: 29%;
+  }
+}
+@media (max-width: 768px) {
+  .karl-slider .gallery-box {
+    width: 45%;
+  }
+}
+@media (max-width: 500px) {
+  .karl-slider .gallery-box {
+    width: 90%;
+  }
+}
 /*********** 小鑫鑫 **********/
+.yang_contain {
+  background-color: #000;
+}
+.yang_avatar_wrap {
+  margin: 0 74px;
+  position: relative;
+}
+.yang_avatar_top {
+  background-color: #000;
+  text-align: center;
+  color: #fff;
+}
+.yang_avatar_top h3 {
+  line-height: 40px;
+  margin-bottom: 10px;
+  font-size: 38px;
+}
+.yang_avatar_top h4 {
+  line-height: 16px;
+  font-size: 16px;
+}
+.yang_avatar_content {
+  margin: 0 15px;
+  min-height: 200px;
+  overflow: hidden;
+  padding: 70px 0;
+}
+.yang_avatar_wrap ul {
+  width: 240%;
+  position: relative;
+}
+.yang_avatar_wrap ul li {
+  width: 8.3333333333333333333%;
+  float: left;
+  text-align: center;
+  min-height: 200px;
+  background-color: #000;
+  padding: 0 20px;
+}
+.yang_avatar_wrap ul li a {
+  text-decoration: none;
+}
+.yang_avatar_descrip h3 {
+  margin-top: 30px;
+  line-height: 30px;
+  font-size: 30px;
+  color: #fff;
+}
+.yang_avatar_descrip h4 {
+  margin-top: 9px;
+  line-height: 19px;
+  font-size: 18px;
+  color: #fff;
+}
+.yang_avatar_wrap ul li img {width: 100%;}
+.yang_btn_con {
 
+}
+.yang_left,.yang_right {
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+  width: 39px;
+  height: 60px;
+}
+.yang_left {
+  left: 0;
+  margin-left: -39px;
+  background: url(../images/left.png) left top no-repeat;
+
+}
+.yang_right {
+  margin-right: -39px;
+  right: 0;
+  background: url(../images/right.png) left top no-repeat;
+}
 /*********** 岳谱 ************/
