@@ -92,6 +92,115 @@ body {
 /***** 乔振 ******/
 
 /***** 岳谱 ******/
+.content .yp-top{
+
+    height:30px;
+    background: #ffffff;
+    margin-left: 260px;
+    line-height: 30px;
+    padding-left: 30px;
+
+}
+.content .yp-top a{
+    padding-right: 10px;
+    color: #b0b0b0;
+}
+.content .yp-top a:hover{
+    color: #82a8cb;
+
+}
+.content .yp-middle{
+    height: 84px;
+    background: #ffffff;
+    margin:18px 72px auto 320px;
+    border: solid 1px #dcdedf;
+    padding-left: 32px;
+}
+.content .yp-middle select{
+    -webkit-appearance: none;
+    height:24px;
+    line-height: 24px;
+    border:solid 1px #bbbaba;
+    font-size: 12px;
+    font-family: "MicrosoftJhengHei";
+}
+.check {
+    display: inline-block;
+    float: left;
+    margin-top: 15px;
+    margin-right: 40px;
+}
+
+
+.yp-middle .select1{
+    width: 68px;
+    padding-left: 12px;
+    margin-left: 4px;
+    background: url("../imgs/y-arrow.png ") no-repeat 30px -140px;
+}
+.yp-middle .seller{
+    display: inline-block;
+    width: 170px;
+    margin-top: 7px;
+}
+
+.yp-middle .select2{
+    width: 118px;
+    background: url("../imgs/y-arrow.png ") no-repeat 73px -89px;
+    margin-top:8px;
+    padding-left:8px;
+}
+.yp-middle .yp-change{
+    display: inline-block;
+    width:50px;
+    height:38px;
+    background:url("../imgs/y-arrow.png ") no-repeat  2px 1px;
+    margin-left: -32px;
+    position:relative;
+}
+.yp-change span{
+    display: inline-block;
+    width:12px;
+    height: 12px;
+    background:#ababab;
+    color: #ffffff;
+    position: absolute;
+    top: 13px;
+    right: 12px;
+}
+.yp-middle .yp-time{
+    display: inline-block;
+    width: 310px;
+    margin-left: 35px;
+
+}
+.yp-time input{
+    width: 118px;
+    margin-right: 8px;
+}
+.yp-time .select3{
+    width: 70px;
+    background: url("../imgs/y-arrow.png ") no-repeat 26px -89px;
+    margin-right: 14px;
+    padding-left: 8px;
+}
+
+.yp-middle button{
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+    background: #388ac1;
+    color: #ffffff;
+    border-radius: 3px;
+    border:solid 1px #388ac1;
+    float: right;
+    margin-top: 33px;
+    margin-right: 250px;
+}
+
+
+
+
 
 /***** 鲍鲍 ******/
 
