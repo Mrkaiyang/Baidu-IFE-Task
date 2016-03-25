@@ -254,9 +254,6 @@ button{
 
 .select select option{
 	background-color: #fff;
-    appearance: none;
-	-moz-appearance: none;
-    -webkit-appearance: none;
 }
 
 .select select option:hover{
