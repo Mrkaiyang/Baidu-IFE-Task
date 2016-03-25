@@ -76,7 +76,7 @@ body {
 }
 .content {
   width: 100%;
-  min-height: 100px;
+  min-height: 1000px;
   height: auto;
   display: block;
   border-left: 260px solid #2a2e3d;

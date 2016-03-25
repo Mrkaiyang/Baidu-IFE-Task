@@ -92,12 +92,76 @@
   top: 14px;
   left: 5px;
 }
-nav .user-information {
+nav .user {
   padding: 18px 45px;
 }
 nav .user-information .pic-box {
-  width: 57px;
-  height: 57px;
-  border: 1px solid #fff;
+  display: inline-block;
+  width: 58px;
+  height: 58px;
+  border: 2px solid #b9babd;
   border-radius: 50%;
+  position: relative;
+}
+nav .user-information .pic-box .pic {
+  width: 46px;
+  height: 46px;
+  background: #b9babd;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+nav .user-information span {
+  color: #fff;
+  position: relative;
+  bottom: 20px;
+  left: 10px;
+}
+nav .user .collect-fans {
+  margin-top: 20px;
+  width: 170px;
+  height: 55px;
+}
+nav .user .collect-fans dl {
+  width: 65px;
+  display: inline-block;
+  color: #6d7f95;
+  text-align: center;
+}
+nav .user .collect-fans dl dd {
+  font-size: 14px;
+}
+nav .user .collect-fans dl:first-child {
+  padding-right: 10px;
+}
+nav .user .collect-fans dl:last-child {
+  border-left: 1px solid #6d7f95;
+  padding-left: 25px;
+}
+nav .menu-list li {
+  padding-left: 45px;
+  line-height: 45px;
+}
+nav .menu-list li a {
+  color: #6e8096;
+}
+nav .menu-list li a i {
+  padding-right: 10px;
+}
+nav .menu-list .table {
+  background: #383d4e;
+}
+nav .menu-list .table ul li {
+  padding-left: 25px;
+  color: #6e8096;
+  font-size: 14px;
+}
+nav .menu-list .table ul li:nth-of-type(2) {
+  font-size: 14px;
+  color: #fff;
+}
+nav .menu-list .table ul li:nth-of-type(2) ul li:nth-of-type(1) a {
+  color: #fff;
 }
