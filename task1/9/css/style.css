@@ -124,7 +124,6 @@ body {
     padding-left: 32px;
 }
 .content .yp-middle select{
-    -webkit-appearance: none;
     height:24px;
     line-height: 24px;
     border:solid 1px #bbbaba;
@@ -149,6 +148,7 @@ body {
     display: inline-block;
     width: 170px;
     margin-top: 7px;
+    box-sizing: border-box;
 }
 
 .yp-middle .select2{
@@ -177,7 +177,7 @@ body {
 }
 .yp-middle .yp-time{
     display: inline-block;
-    width: 310px;
+    width: 315px;
     margin-left: 35px;
 
 }
