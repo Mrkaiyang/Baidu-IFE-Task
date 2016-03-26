@@ -94,6 +94,171 @@ body {
 /***** 岳谱 ******/
 
 /***** 鲍鲍 ******/
+.karl-container {
+  overflow: hidden;
+  color: #535353;
+  font-size: 12px;
+  padding: 15px 0;
+}
+
+.karl-block-container {
+  border: 1px solid #aaaaaa;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.karl-block-container .title {
+  height: 40px;
+  width: 100%;
+  line-height: 40px;
+  border-bottom: 1px solid #ccc;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px;
+  border-radius: 5px 5px 0 0;
+  background-color: #f3f5f6;
+  padding-left: 15px;
+  color: #aaaaaa;
+}
+.karl-block-container.karl-block-left {
+  float: left;
+  width: 530px;
+  height: 350px;
+}
+.karl-block-container.karl-block-right {
+  float: right;
+  width: 350px;
+  height: 350px;
+}
+
+.karl-projects {
+  margin: 15px;
+}
+.karl-projects .tab {
+  background-color: #ededf0;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #aaaaaa;
+  margin-bottom: -1px;
+  -moz-border-radius: 3px 3px 0 0;
+  -webkit-border-radius: 3px;
+  border-radius: 3px 3px 0 0;
+}
+.karl-projects .tab.active, .karl-projects .tab:hover {
+  background-color: #fff;
+  border: 1px solid #aaaaaa;
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
+}
+.karl-projects .panel {
+  padding: 30px 40px;
+  border: 1px solid #aaaaaa;
+  -moz-border-radius: 0 3px 3px 3px;
+  -webkit-border-radius: 0;
+  border-radius: 0 3px 3px 3px;
+}
+.karl-projects .panel table {
+  border-collapse: collapse;
+}
+.karl-projects .panel td {
+  width: 100px;
+  height: 30px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.karl-projects .panel td.active {
+  background-color: #f4f5f6;
+}
+
+.karl-doc {
+  margin: 15px 30px;
+}
+.karl-doc .row {
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+}
+.karl-doc .row section {
+  padding-bottom: 10px;
+  padding-left: 15px;
+  border-left: 1px solid #ddd;
+}
+.karl-doc .row section:first-child {
+  border-left: none;
+}
+.karl-doc .row section.left {
+  width: 40%;
+  float: left;
+}
+.karl-doc .row section.right {
+  width: 60%;
+  float: left;
+}
+.karl-doc .row section.description {
+  height: 110px;
+}
+.karl-doc .contract {
+  overflow: hidden;
+  margin-top: 5px;
+}
+.karl-doc label {
+  color: #c3c2c2;
+  margin: 5px 0;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+}
+.karl-doc input[type=checkbox] {
+  display: none;
+}
+.karl-doc input[type=checkbox] + label {
+  position: relative;
+}
+.karl-doc input[type=checkbox] + label:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  background-color: #d6d6d6;
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
+  font-size: 12px;
+}
+.karl-doc input[type=checkbox]:checked + label:before {
+  content: '✓';
+  color: #6f6d6d;
+}
+.karl-doc .btn {
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  float: right;
+  background-color: #388ac1;
+  color: #fff;
+  padding: 0 15px;
+  border: none;
+  cursor: pointer;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+.karl-doc .btn:hover {
+  opacity: .8;
+}
 
 /***** 小鑫鑫 ******/
 
