@@ -48,7 +48,7 @@ div{
      btn.addEventListener('click',function(){
       if(input.value == ""){
        alert("请输入数字");
-      }else if(!/[0-9]+/.test(input.value)){
+      }else if(!/^[0-9]+$/.test(input.value)){
         alert("请输入数字");
       }
       else{
