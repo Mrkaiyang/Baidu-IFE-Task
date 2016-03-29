@@ -6,9 +6,16 @@ function getText() {
 	var reg = /^[\da-zA-Z\u4E00-\u9FA5\r\0\n\s，,、]+$/;
 	var val = document.querySelector('#textarea').value;
 	if(reg.test(val)) {
-		return val;
+		return trimBothSides(val);
 	}
 	return undefined;
+	function trimBothSides(str) {
+		var spaceLeft = /^[\s]+/;
+		var spaceRight = /[\s]+$/;
+		str = str.replace(spaceLeft,'');
+		str = str.replace(spaceRight,'');
+		return str;
+	}
 }
 
 function enqueueBefore() {
