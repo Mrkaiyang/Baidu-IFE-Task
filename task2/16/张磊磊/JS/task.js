@@ -81,6 +81,7 @@ function renderAqiList(){
 function addBtnHandle() {
   addAqiData();
   renderAqiList();
+  console.log(btn);
 }
 
 /**
@@ -90,10 +91,9 @@ function addBtnHandle() {
 
 
 function init() {
- btn.addEventListener('click',function(){
-    addBtnHandle();
-  });
- 
+  btn.addEventListener('click',function(){
+    addBtnHandle() ;
+  })
   // 在这下面给add-btn绑定一个点击事件，点击时触发addBtnHandle函数
 
   // 想办法给aqi-table中的所有删除按钮绑定事件，触发delBtnHandle函数
