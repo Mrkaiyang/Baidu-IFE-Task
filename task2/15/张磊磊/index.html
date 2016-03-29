@@ -82,10 +82,14 @@ function btnHandle() {
 }
 
 
+var on = false;
 function init() {
   var btn = document.querySelector('#sort-btn');
   btn.addEventListener('click',function(){
-    btnHandle();
+  if(!on){
+      btnHandle();
+     on = true;
+   }
   })
 
   // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
