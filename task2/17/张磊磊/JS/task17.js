@@ -60,7 +60,9 @@ function renderChart() {
       renderHTML = "",
       colors = ['#16324a', '#24385e', '#393f65', '#4e4a67', '#5a4563', '#b38e95',
               '#edae9e', '#c1b9c2', '#bec3cb', '#9ea7bb', '#99b4ce', '#d7f0f8'],
-      qualityColor = "";
+      qualityColor = "",
+      title = document.querySelector('.chart h1'),
+      until = "";
   for(var key in chartData ){
     switch (true){
       case chartData [key] < 42:
@@ -104,6 +106,18 @@ function renderChart() {
     + chartData[key] + "px; background:" + qualityColor + ";'></div>"
   }
   wrap.innerHTML = renderHTML;
+  switch(pageState.nowGraTime){
+    case "day":
+      until = "日";
+      break;
+    case "week":
+      until = "周平均";
+      break;
+    case "month":
+      until = "月平均";
+      break;
+  }
+  title.textContent = pageState.nowSelectCity + "1-3月每" +  until + "空气质量报告";
 }
 
 /**
@@ -111,7 +125,6 @@ function renderChart() {
  */
 function graTimeChange() {
   var time = document.querySelector('input[name=gra-time]:checked').value;
-  if(time == pageState.nowGraTime) {return false;}
   // 确定是否选项发生了变化 
   pageState.nowGraTime = time;
   // 设置对应数据
@@ -165,45 +178,50 @@ function initAqiChartData() {
   // 处理好的数据存到 chartData 中
   var allData = aqiSourceData[pageState.nowSelectCity];
   chartData = {};
-  if(pageState.nowGraTime == 'day') {
+  if(pageState.nowGraTime == "day"){
     chartData = allData;
   }
-  if(pageState.nowGraTime == 'week') {
-    var averageApi,
-        countedDays = 0,
-        sum = 0,
-        week = 1;
-    for(var date in allData) {
-      var day = (new Date(date)).getDay();
-      sum += allData[date];
-      countedDays++;
-      // 每周日or最后一天结算
-      if(day == 6 || date == Object.keys(allData)[Object.keys(allData).length-1]) {
-        averageApi = parseInt(sum/countedDays);
-        chartData['第'+week+'周'] = averageApi;
-        // reset
-        countedDays = 0, sum = 0, week++;
+  else if(pageState.nowGraTime == "week"){
+    var weekCount = 0,
+        weekSum   = 0,
+        weekth    = 1,
+        weekAver     ;
+    for (data in allData){
+      var weekDay = (new Date(data)).getDay();
+      weekCount += 1 ;
+      weekSum   += allData[data];
+      if(weekDay == 0 ){
+        weekAver = weekSum/weekCount;
+        chartData['第'+weekth+'周'] = weekAver ;
+        //清空继续遍历
+        weekCount = 0 ;
+        weekSum   = 0 ;
+        weekth++;
       }
     }
   }
-  if(pageState.nowGraTime == 'month') {
-    var averageApi = 0,
-        sum = 0,
-        countedDays = 0;
-    for(var date in allData) {
-      var d = new Date(date);
-      var year = d.getFullYear();
-      var month = d.getMonth();
-      var day = d.getDate();
-      var totalDays = (new Date(year,month+1,0)).getDate();
-      sum += allData[date];
-
-      if(day == totalDays) {
-        averageApi = parseInt(sum/totalDays);
-        chartData[(month+1)+'月'] = averageApi;
-        averageApi=0, sum=0, countedDays=0;
+ else if(pageState.nowGraTime == "month"){
+    var Jan = 0,
+        Feb = 0,
+        Mar = 0;
+    for(data in allData){
+      var month = (new Date(data)).getMonth();
+      switch(month){
+        case 0:
+          Jan = Jan + allData[data];
+          break;
+        case 1:
+          Feb = Feb + allData[data];
+          break;
+        case 2:
+          Mar = Mar + allData[data];
+          break;
       }
     }
+    chartData["1月"] = Jan/31;
+    chartData["2月"] = Feb/29;
+    chartData["3月"] = Mar/31;
+
   }
 }
 
