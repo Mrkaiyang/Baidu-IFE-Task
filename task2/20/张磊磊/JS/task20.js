@@ -21,20 +21,29 @@ window.onload = function(){
 		 ***/
 		function leftInEvent(){
 			// 判断输入
-			if (/[^\n\r\s 、,，0-9A-Za-z\u4e00-\u9fa5]/.test(input.value)){
-				alert("请输入数字");
-				return flase;
+			if(!input.value){
+				alert("请输入");
+				return false;
 			}
-			var splitArr = input.value.split(/[\s\r\n、,，]+/);
+			else if (/[^\n\r\s 、,，0-9A-Za-z\u4e00-\u9fa5]/.test(input.value)){
+				alert("请输入数字");
+				return false;
+			}
+			var splitArr = input.value.trim().split(/[\s\r\n、,，]+/);
 			//操作数组 
 			listArr = splitArr.concat(listArr);
 		}
 		function rightInEvent(){
-			if (/[^\n\r\s 、,，0-9A-Za-z\u4e00-\u9fa5]/.test(input.value)){
-				alert("请输入数字");
-				return flase;
+			if(!input.value){
+				alert("请输入");
+				return false;
 			}
-			var splitArr = input.value.split(/[\s\r\n、,，]+/);
+			else if (/[^\n\r\s 、,，0-9A-Za-z\u4e00-\u9fa5]/.test(input.value)){
+				alert("请输入数字");
+				return false;
+			}
+			var splitArr = input.value.trim().split(/[\s\r\n、,，]+/);
+			console.log(splitArr);
 			//操作数组 
 			listArr = listArr.concat(splitArr);
 		}
