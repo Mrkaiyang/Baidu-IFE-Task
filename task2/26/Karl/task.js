@@ -228,6 +228,14 @@ var ControlPanel = function() {
             totalShips--;
         })
     }
+
+    var init = function() {
+        $('#launch-btn').on('click', function(event) {
+            launchShip();
+        });
+    }
+
+    init();
     // 公共方法
     return {
         launchShip: launchShip
@@ -259,7 +267,5 @@ $(document).ready(function(){
 
     // 创建宇航日志
     log = new Log($('#log-panel'));
-    $('#launch-btn').on('click', function(event) {
-        controlPanel.launchShip();
-    });
+    
 })
