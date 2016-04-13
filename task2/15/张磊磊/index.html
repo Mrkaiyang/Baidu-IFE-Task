@@ -33,44 +33,28 @@
  * 读取id为source的列表，获取其中城市名字及城市对应的空气质量
  * 返回一个数组，格式见函数中示例
  */
+function getData(){
   var ul      = document.querySelectorAll('#source li'),
       number  = document.querySelectorAll('#source li b'),
-      newarr = [];
+      data = [];
   for(var i = 0; i < ul.length ;i++){
   var city = ul[i].innerText.match(/.{2}(?=空气质量：\d{2})/);//提取城市名
-  console.log(city);
-  var innerarr = city.push(number[i].innerText);//城市名与空气质量指数结合成内部小数组
-  newarr.push(innerarr);
- }
-
-
-
-
-
-function getData() {
-  /*
-  coding here
-  */
-
-  /*
-  data = [
-    ["北京", 90],
-    ["北京", 90]
-    ……
-  ]
-  */
-
-  return data;
-
+  city.push(number[i].innerText);//城市名与空气质量指数结合成内部小数组
+  data.push(city);
+  };
+  return  data;
 }
-
+  
 /**
  * sortAqiData
  * 按空气质量对data进行从小到大的排序
  * 返回一个排序后的数组
  */
 function sortAqiData(data) {
-
+  data.sort(function(a,b){
+   return b[1] - a[1];
+  });
+  return data;
 }
 
 /**
@@ -79,6 +63,15 @@ function sortAqiData(data) {
  * 格式见ul中的注释的部分
  */
 function render(data) {
+  var docfraq = document.createDocumentFragment(),
+      ul = document.querySelector('#resort'),
+       util = ['一','二','三','四','五','六','七','八','九','十'];
+      for (var i = 0; i < data.length; i++) {
+        var li = document.createElement("li");
+        li.innerHTML = '第' + util[i] +'名：' + data[i][0] + '空气质量：' + '<b>' + data[i][1]+ '</b>' + '<br>';
+        docfraq.appendChild(li);
+        ul.appendChild(docfraq);
+      };
 
 }
 
@@ -89,7 +82,15 @@ function btnHandle() {
 }
 
 
+var on = false;
 function init() {
+  var btn = document.querySelector('#sort-btn');
+  btn.addEventListener('click',function(){
+  if(!on){
+      btnHandle();
+     on = true;
+   }
+  })
 
   // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
 
