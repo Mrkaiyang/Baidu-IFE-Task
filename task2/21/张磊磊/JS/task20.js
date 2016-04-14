@@ -29,11 +29,14 @@
 				this.listArr = splitArr.concat(this.listArr);				
 			},
 		}
+	//创建实例&功能拓展
 	var tag = new init($('.tag-input'));
 	var hobby = new init($('.hobby-input'));
 	var $hobbyBtn = $('.confirm');
+	hobby.prototype.d = function(){};
 	//绑定事件
 	$hobbyBtn.on('click',function(){
 		hobby.In();
 		hobby.render();
+		hobby.deleteEle();
 	})
