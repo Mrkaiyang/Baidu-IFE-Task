@@ -1,11 +1,37 @@
-var TableTool = (function(Window,$,undefinded){
-	init:function(opts){
-		return new table(opts);
+var TableTool = (function(){
+	function init(opts){
+		var instance = new table(opts)
+		return instance;
 	}
-	table:function(){
+	function table(){
 		
 	}
-
+	table.prototype = {
+		defaultOpts:{
+			append:$('.body'),
+			data:{
+				thead:[],
+				sort:[],
+				tbody:[]
+			},
+			isSort:true,
+			isFrozen:true,
+			headColor:'defaultColor'
+		},
+		//设置参数
+		setOpts:function(opts){
+			if(typeof opts == 'object'){
+			this.opts = $.extend({},this.defaultOpts,opts);
+			}
+			else{
+				console.log('参数格式错误')；
+			}
+		},
+		createTable:function(){
+			var tableData = this.opts.data
+			var tpl = ''
+		}
+	};
 
 
 
@@ -13,11 +39,18 @@ var TableTool = (function(Window,$,undefinded){
 		init:init
 	}
 
-})(Window,$)
+})()
 
 var table1 = TableTool.init({
-	Data:{},
-	isSort:true;
-	isFrozen:true;
-	headColor:defaultColor;
+	append:$('.body'),
+	data:{
+		thead:[],
+		sort:[],
+		tbody:{
+			1:[]
+		}
+	},
+	isSort:true,
+	isFrozen:true,
+	headColor:'defaultColor'
 })
