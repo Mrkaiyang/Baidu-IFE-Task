@@ -58,6 +58,10 @@ var Dialog = (function(){
 	    },
 	    bindEvent:function(){
 	    	var self = this ;
+	    	this.$dialog.find('.cover').on('click',function(e){
+	    		e.preventDefault();
+	    		self.hideDialog();
+	    	})
 	    	this.$dialog.find('.btn-cancel').on('click',function(e){
 	    		e.preventDefault();
 	    		self.opts.onClose();
