@@ -1,10 +1,10 @@
 //var queueLength = 0;
-var queueArr = [];
+var tagArr = [],
+	hobbyArr = [];
 
-//验证输入内容合法性
-function getText() {
+//验证输入内容合法性并进行整形
+function validateText(val) {
 	var reg = /^[\da-zA-Z\u4E00-\u9FA5\r\0\n\s，,、]+$/;
-	var val = document.querySelector('#textarea').value;
 	if(reg.test(val)) {
 		return trimBothSides(val);
 	}
@@ -18,52 +18,53 @@ function getText() {
 	}
 }
 
-function enqueueBefore() {
-	var text = getText();
-	var separators = /[\r\0\n\s,，、]+/;
-	var elements = [];
-	if(text != undefined) {
-		elements = text.split(separators);
-		elements.map(function(value, index){
-			queueArr.unshift(value);
-		})
-		renderQueue();
-	}
-	else {
-		alert('输入内容包含非法字符！');
+function detectTagInput(event) {
+	var text = event.target.value;
+	var tagQueue;
+	var lastChar = text.slice(-1);
+	var keycode = event.keyCode;
+	var endingReg = /[\n\s，,]/ //用正则匹配判断逗号和空格，回车无法从字符串中截取
+	var endingCode = [13]; // 用keycode判断回车，空格在中文输入法下回出现bug，不能用keycode判断
+	if((endingCode.indexOf(keycode)>-1)||endingReg.test(lastChar)) {
+		event.preventDefault();
+		text = endingCode.indexOf(keycode)>-1 ? text:text.slice(0,-1);
+		tagQueue = document.querySelector('.tags');
+		event.target.value = '';
+		enqueueAfter(text,tagArr);
+		renderQueue(tagArr,tagQueue);
 	}
 }
 
-function enqueueAfter () {
-	var text = getText();
+function addHobby() {
+	var hobbyStr = document.querySelector('#hobby-input').value;
+	var hobbyQueue = document.querySelector('.hobbies');
+	if((hobbyStr = validateText(hobbyStr))!=undefined) {
+		enqueueAfter(hobbyStr,hobbyArr);
+		renderQueue(hobbyArr,hobbyQueue);
+	}
+}
+function enqueueAfter(text,arr) {
 	var separators = /[\r\0\n\s,，、]+/;
 	var elements = [];
 	if(text != undefined) {
 		elements = text.split(separators);
 		elements.map(function(value, index){
-			queueArr.push(value);
+			if(arr.indexOf(value) == -1 && value!='') {
+				arr.push(value);
+				if(arr.length >= 10) {
+					arr.shift();
+				}
+			}
 		});
-		renderQueue();
 	}
 	else {
 		alert('输入内容包含非法字符！');
 	}
-
 }
 
 function dequeueBefore() {
 	if(queueArr.length) {
 		queueArr.shift();
-		renderQueue();
-	}
-	else {
-		alert('没有可出列元素');
-	}
-}
-
-function dequeueAfter() {
-	if(queueArr.length) {
-		queueArr.pop();
 		renderQueue();
 	}
 	else {
@@ -92,12 +93,13 @@ function query() {
 	}
 }
 
-function deleteElement(e) {
+function deleteTag(e) {
 	if(e.target.nodeName.toLowerCase() == 'li') {
 		//alert(e.target.style.height);
 		var i = nodeIndex(e.target);
 		e.target.remove();
-		queueArr.splice(i-1,1);
+		tagArr.splice(i-1,1);
+		console.log(tagArr);
 	}
 	// 返回此节点是其父元素的第几个子元素
 	function nodeIndex(node) {
@@ -108,26 +110,26 @@ function deleteElement(e) {
 		return i;
 	}
 }
-
-function renderQueue() {
-	var queue = document.querySelector('.queue');
+/**
+ * @param arr: 存放要渲染数据的数组
+ * @param queue: 要渲染的节点
+ */
+function renderQueue(arr,queue) {
 	while(queue.firstChild) {
 		queue.removeChild(queue.firstChild);
 	}
-	queueArr.map(function(value){
+	arr.map(function(value){
 		var node = document.createElement('li');
 		var content = document.createTextNode(value);
 		node.appendChild(content);
 		queue.appendChild(node);
 	})
 }
+
 function initBtnHandle() {
-	document.querySelector('#enqueue-before').addEventListener('click',enqueueBefore);
-	document.querySelector('#enqueue-after').addEventListener('click',enqueueAfter);
-	document.querySelector('#dequeue-before').addEventListener('click',dequeueBefore);
-	document.querySelector('#dequeue-after').addEventListener('click',dequeueAfter);
-	document.querySelector('.queue').addEventListener('click',deleteElement);
-	document.querySelector('#query-btn').addEventListener('click',query);
+	document.querySelector('#tag-input').addEventListener('keyup',detectTagInput);
+	document.querySelector('.tags').addEventListener('click',deleteTag);
+	document.querySelector('#hobby-btn').addEventListener('click',addHobby);
 }
 
 function init() {
