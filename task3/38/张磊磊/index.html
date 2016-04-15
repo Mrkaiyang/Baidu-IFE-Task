@@ -14,7 +14,7 @@
 			<th>1<span></span></th>
 			<th>1<span></span></th>
 		</tr>
-		</thead>
+	</thead>
 	<thead>
 		<tr>
 			<td>2</td>
@@ -23,6 +23,19 @@
 		</tr>
 	</thead>
 </table>	
-	
 </body>
 </html>
+var table1 = TableTool.init({
+	append:$('.body'),
+	data:{
+		thead:[],
+		sortSwitch:[],
+		tbody:{
+			1:[],
+			2:[]
+		}
+	},
+	isSort:true,
+	isFrozen:true,
+	headColor:'defaultColor'
+})

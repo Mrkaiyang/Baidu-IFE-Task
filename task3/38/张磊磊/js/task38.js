@@ -11,8 +11,9 @@ var TableTool = (function(){
 			append:$('.body'),
 			data:{
 				thead:[],
-				sort:[],
-				tbody:[]
+				sortSwitch:[],
+				tbody:{
+				}
 			},
 			isSort:true,
 			isFrozen:true,
@@ -23,21 +24,54 @@ var TableTool = (function(){
 			if(typeof opts == 'object'){
 			this.opts = $.extend({},this.defaultOpts,opts);
 			}
-			else{
-				console.log('参数格式错误')；
-			}
+
 		},
-		createTable:function(){
-			var tableData = this.opts.data
-			var tpl = ''
+		renderTable:function(){
+			var tableDataThead = this.opts.thead;//数组
+				tableDataTbody = this.opts.tbody;//对象
+			var theadStr = '',
+				tbodyStr = '';
+			//拼接表头数组
+			for (var i = 0;i < tableDataThead.length; i++){
+				var temHeadStr = '',//临时字符串清空
+				temHeadStr = '<th>' + tableDataThead[i] +'<span></span></th>';
+							theadStr += temHeadStr;
+			}
+			//拼接表身数组
+			for(var Arr in tableDataTbody){
+				var temBodyLineStr = '';
+				var temBodyCloStr = '';
+				for(var i = 0;i < tableDataTbody[Arr].length ;i++){
+					var puzzleStr = '';
+					puzzleStr = '<td>' + tableDataTbody[Arr][i] +'</td>';
+					temBodyCloStr += puzzleStr ;
+				}
+				temBodyLineStr = '<tr>' + temBodyCloStr+'</tr>';
+				tbodyStr += temBodyLineStr
+			}
+			var tpl = '<table border=1 class="table-tool">' 
+					+ '<thead>' 
+					+ '<tr>'
+					+ theadStr 
+					+ '</tr>'
+					+ '</thead>'
+					+ '<tbody>'
+					+ tbodyStr
+					+ '</tbody>'
+					+ '</table>';
+			this.$table = tpl;
+		},
+		setTable:function(){
+			if(!this.opts.isSort){
+				this.$table.find('span').hidden();
+			}
 		}
 	};
 
 
-
 	return{
 		init:init
-	}
+	};
 
 })()
 
@@ -45,9 +79,10 @@ var table1 = TableTool.init({
 	append:$('.body'),
 	data:{
 		thead:[],
-		sort:[],
+		sortSwitch:[],
 		tbody:{
-			1:[]
+			1:[],
+			2:[]
 		}
 	},
 	isSort:true,
