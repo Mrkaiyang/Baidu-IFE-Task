@@ -65,6 +65,17 @@ var TableTool = (function(){
 			if(!this.opts.isSort){
 				this.$table.find('span').hidden();
 			}
+		},
+		frozenTable:function(){
+			var $tableHead    = this.$table.find('.thead'),
+				headH         = $tableHead.height(),
+                headW         = $tableHead.width(),
+                headStyle     = $tableHead.attr('style'),
+                headOffsetTop = $tableHead.offset().top,
+                headOffLeft   = $tableHead.offset().left;
+            var $headClone    = $tableHead.clone()
+            				    .css('opacity',0)
+            				    .insertBefore($tableHead)
 		}
 	};
 
