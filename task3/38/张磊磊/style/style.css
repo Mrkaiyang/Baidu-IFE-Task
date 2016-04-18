@@ -13,7 +13,8 @@ body{
 .table-tool th{
   background: #555;
   color:#fff;
-  position:relative
+  position:relative;
+  border:1px solid #555;
 }
 .table-tool th>span{
   display: inline-block;

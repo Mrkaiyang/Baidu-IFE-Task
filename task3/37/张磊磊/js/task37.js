@@ -17,7 +17,6 @@ var Dialog = (function(){
 			else if(typeof opts == 'object'){
 				this.opts = $.extend({},this.defaultOpts,opts);
 			}
-			console.log(this.opts);
 		},
 		createDialog:function(){
 			var tpl = '<div class="dialog-group" style ="display:none;">'
@@ -32,8 +31,9 @@ var Dialog = (function(){
                 	+ '<a class="btn btn-cancel half" href="#">取消</a>'
                 	+ '</div>'
                 	+ '</div>'
-            this.$dialog = $(tpl)
-            $('body').append(this.$dialog)
+            this.$dialog = $(tpl);
+            console.log($(this.$dialog));
+            $('body').append(this.$dialog);
 		},
 		setDialog : function(){
 			var $dialog  = this.$dialog;

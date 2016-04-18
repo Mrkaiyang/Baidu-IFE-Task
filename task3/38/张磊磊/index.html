@@ -5,37 +5,45 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="style/style.css">
 	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<style>
+		body{
+			font: 14px/1.5 '\5fae\8f6f\96c5\9ed1', Arial,Tahoma, sans-serif;
+		}
+		ul>li{
+			margin-left: 20px;
+		}
+		h2{
+			margin-bottom: 15px;
+		}
+	</style>
 </head>
 <body>
-<table border=1 class="table-tool">
-	<thead>
-		<tr>
-			<th>1<span></span></th>
-			<th>1<span></span></th>
-			<th>1<span></span></th>
-		</tr>
-	</thead>
-	<thead>
-		<tr>
-			<td>2</td>
-			<td>2</td>
-			<td>2</td>
-		</tr>
-	</thead>
-</table>	
+<h2 >表格插件&默认配置参数说明</h2>
+<ul><span style="font-size: 18px;">本插件可配选项:</span>
+	<li>表格数据</li>
+	<li>插入位置</li>
+	<li>总体排序开关</li>
+	<li>单列排序开关</li>
+	<li>表头冻结</li>
+	<li>表头背景色</li>
+</ul>
+<span style="font-size: 18px;">默认参数:</span>
+<p>
+defaultOpts:{   <br>
+&nbsp&nbsp&nbsp&nbspappend:$('.body'), <br>
+&nbsp&nbsp&nbsp&nbspdata:{ <br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspthead:[],  <br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspsortSwitch:[], <br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsptbody:{}<br>
+&nbsp&nbsp&nbsp&nbsp}<br>
+&nbsp&nbsp&nbsp&nbspisSort:true,<br>
+&nbsp&nbsp&nbsp&nbspisFrozen:true,<br>
+&nbsp&nbsp&nbsp&nbspheadColor:'defaultColor<br>
+		},
+</p>
+<h2 >一、总体排序开关示例</h2>
+<div class="table1"></div>
+<script src="js/task38.js"></script>
 </body>
 </html>
-var table1 = TableTool.init({
-	append:$('.body'),
-	data:{
-		thead:[],
-		sortSwitch:[],
-		tbody:{
-			1:[],
-			2:[]
-		}
-	},
-	isSort:true,
-	isFrozen:true,
-	headColor:'defaultColor'
-})
+	
