@@ -1,0 +1,34 @@
+*{
+	padding : 0px;
+	margin : 0px;
+	box-sizing: border-box;
+}
+body{
+	padding:20px;
+}
+
+.calendar-contanier{
+	display: inline-block;
+	position: relative;
+}
+.calendar-contanier .data-text{
+	width: 218px;
+	padding:4px;
+	height: 25px;
+	border: 1px solid #ccc;
+	background: url('../img/o_nextprv.png')no-repeat right -18px;;
+}
+.calendar-contanier dl{
+	width:486px;
+	height:423px;
+	background-color: #f6f6f6;
+	position:absolute;
+	margin-top: 10px;
+}
+.calendar-contanier dl dt{
+	width:486px;
+	height:63px;
+	border-top:4px solid #ef4f69;
+	border-bottom:1px solid #dddddd;
+	box-shadow:0px 0px 0 #fff,0px 0px 0 #fff,0px 1px 1px #e2e2e2;
+} 
