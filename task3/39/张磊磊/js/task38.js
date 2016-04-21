@@ -12,7 +12,7 @@ var TableTool = (function(){
 	}
 	table.prototype = {
 		defaultOpts:{
-			append:$('.body'),
+			append:$('body'),
 			data:{
 				thead:[],
 				sortSwitch:[],
