@@ -138,6 +138,43 @@ var TableTool = (function(){
             				    .hide();
             var self          =  this;
             	this.$headClone = $headClone;
+
+            if ($(window).scrollTop() >= (headOffsetTop + tableH)){
+            		if(!!$tableHead.attr('data-fixed')){
+            			$tableHead.removeAttr('data-fixed')
+	                        .removeAttr('style')
+	                        .attr('style',headStyle);
+                   		$headClone.hide();
+            		}
+            	}
+            	else if( $(window).scrollTop() > headOffsetTop){
+            		if(!!!$tableHead.attr('data-fixed')){
+            			$tableHead.attr('data-fixed',true)
+	                        .css({
+	                            position: 'fixed',
+	                            top: 0,
+	                            left: headOffLeft,
+	                            'z-index': 9999,
+	                            width: headW,
+	                            margin: 0
+	                            });
+	                    $table .css({
+	                    	'z-index': 8888,
+	                    });
+	                    $headClone.show();
+            		}
+            	}
+            	else{
+            		if(!!$tableHead.attr('data-fixed')){
+            			$tableHead.removeAttr('data-fixed')
+	                        .removeAttr('style')
+	                        .attr('style',headStyle);
+                   		$headClone.hide();
+            		}
+            	}
+
+
+
             $(window).on('scroll',function(){
             	var scrollTop = $(this).scrollTop();
             	if (scrollTop >= (headOffsetTop + tableH)){
