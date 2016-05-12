@@ -91,6 +91,7 @@ var CalenderTool = (function(){
 						'">'+ (i+1) +'</li>'
 					}
 				}
+				//如果日历是6行的渲染
 				else if(renderWeekDay + nowMonthDateCount > 35){
 					for(var i = 0 ; i < renderWeekDay;i++){
 						preMonthStr += '<li class="cal-day-6 pre-month"'
