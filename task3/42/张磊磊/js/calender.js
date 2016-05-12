@@ -8,6 +8,8 @@ var CalenderTool = (function(){
 		this.setOpts(opts);
 		this.$contanier = this.opts.append;
 		this.openCalender();
+		this.clickTimes  = 0;
+		
 	}
 
 	calender.prototype = {
@@ -74,27 +76,40 @@ var CalenderTool = (function(){
 				//如果日历是5行的渲染
 				if(renderWeekDay + nowMonthDateCount <= 35){
 					for(var i = 0 ; i < renderWeekDay;i++){
-						preMonthStr += '<li class="cal-day-5 pre-month">'+ (preMonthDateCount - renderWeekDay + 1 + i)+'</li>'
+						preMonthStr += '<li class="cal-day-5 pre-month"'
+						+ 'date="'+  renderYear + '-' + renderMonth +'-' + (preMonthDateCount - renderWeekDay + 1 + i) + 
+						'">'+ (preMonthDateCount - renderWeekDay + 1 + i)+'</li>'
 					}
 					for(var i = 1; i <= nowMonthDateCount ;i++){
-						nowMonthStr += '<li class="cal-day-5 now-month">'+ i +'</li>'
+						nowMonthStr += '<li class="cal-day-5 now-month"'
+						+ 'date="'+  renderYear + '-' + (renderMonth+1) +'-' + i +
+						'">'+ i +'</li>'
 					}
 					for(var i = 0 ; i< 35 - renderWeekDay - nowMonthDateCount; i++){
-						nextMonthStr += '<li class="cal-day-5 next-month">'+ (i+1) +'</li>'
+						nextMonthStr += '<li class="cal-day-5 next-month"'
+						+ 'date="'+  renderYear + '-' + (renderMonth+2) +'-' + (i+1) +
+						'">'+ (i+1) +'</li>'
 					}
 				}
 				else if(renderWeekDay + nowMonthDateCount > 35){
 					for(var i = 0 ; i < renderWeekDay;i++){
-						preMonthStr += '<li class="cal-day-6 pre-month">'+ (preMonthDateCount - renderWeekDay + 1 + i)+'</li>'
+						preMonthStr += '<li class="cal-day-6 pre-month"'
+						+ 'date="'+  renderYear + '-' + renderMonth +'-' + (preMonthDateCount - renderWeekDay + 1 + i) + 
+						'"">'+ (preMonthDateCount - renderWeekDay + 1 + i)+'</li>'
 					}
 					for(var i = 1; i <= nowMonthDateCount ;i++){
-						nowMonthStr += '<li class="cal-day-6 now-month">'+ i +'</li>'
+						nowMonthStr += '<li class="cal-day-6 now-month"'
+						+ 'date="'+  renderYear + '-' + (renderMonth+1) +'-' + i +
+						'">'+ i +'</li>'
 					}
 					for(var i = 0 ; i< 42 - renderWeekDay - nowMonthDateCount; i++){
-						nextMonthStr += '<li class="cal-day-6 next-month">'+ (i+1) +'</li>'
+						nextMonthStr += '<li class="cal-day-6 next-month"'
+						+ 'date="'+  renderYear + '-' + (renderMonth+2) +'-' + (i+1) +
+						'">'+ (i+1) +'</li>'
 					}
 				}
 				renderSpace.append($(preMonthStr+nowMonthStr+nextMonthStr));
+				this.rangeBackground();
 				this.$Calender.find('.now-data-month').html(monthArr[renderMonth]);
 				this.$Calender.find('.now-data-year').html(renderYear);
 		},
@@ -135,8 +150,78 @@ var CalenderTool = (function(){
 				self.openCalender();
 				self.$Calender.show();
 			});
-			
+			this.$Calender.find('.now-month').on('click',function(e){
+				var $target = $(e.target);
+				self.range($target)
+				self.rangeBackground()
+			})
+			this.$Calender.find('.cal-confirm').on('click',function(){
+				var rangeday = self.opts.chooseRange,
+				    chooseDayCount = (self.end-self.start)/86400000,
+				    startYear = self.start.getFullYear(),
+				    startMonth = self.start.getMonth()+1,
+				    starDate = self.start.getDate(),
+				    endYear = self.end.getFullYear(),
+				    endtMonth = self.end.getMonth()+1,
+				    endDate = self.end.getDate();
+				console.log(rangeday,chooseDayCount);
+				if(rangeday<chooseDayCount){
+					alert('超出选择范围，请选择'+rangeday+'天范围内'
+				)}
+				else{
+					console.log(self.$Calender.parent().prev()[0])
+					self.$Calender.parent().prev().val(startYear+'/'+startMonth+'/'+starDate+'     ——     '+endYear+'/'+endtMonth+'/'+endDate);
+					self.opts.callBack()
+				}
+
+			})
+		},
+		range:function(e){
+			var rangeStr = e.attr('date'),
+				exchange;
+			this.clickTimes += 1;
+			rangeDate = new Date(rangeStr)
+			if (this.clickTimes%2  == 1){
+				this. start = rangeDate
+				
+			}
+			else{
+				this.end= rangeDate
+			}
+			if (this.end<this.start){
+				exchange = this.end;
+				this.end = this.start;
+				this.start = exchange;
+			}
+			console.log(this. start,this.end)
+		},
+		rangeBackground:function(){
+			var self = this;
+			this.$Calender.find('.now-month').each(function(index, el) {
+				var eachStr = $(el).attr('date');
+					eachDate = new Date(eachStr);
+					if(eachDate <self.end && eachDate>self.start){
+						 $(el).css({
+						 	fontWeight:'bold',
+						 	background: '#fff',
+						 	color:'#ef4f69'
+						 });
+					}
+					else if(eachDate-self.start ==0 || eachDate-self.end ==0){
+						$(el).css({
+							background: '#ef4f69',
+						 	color:'#fff'
+						 });
+					}
+					else{
+						$(el).css({
+							background: '#fff',
+						 	color:'#666'
+						 });
+					}
+			});
 		}
+
 
 	};
 	return{
@@ -146,6 +231,6 @@ var CalenderTool = (function(){
 })();
 var calender1 = CalenderTool.init({
 	append:$('.calendar-contanier'),
-	callBack:function(){},
+	callBack:function(){alert('这是回调')},
 	chooseRange:30
 })
