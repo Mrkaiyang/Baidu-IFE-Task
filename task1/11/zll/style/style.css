@@ -48,7 +48,10 @@ nav {
 }
 nav ul {
   height: 1.2rem;
-  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex
 }
 nav li {
   font-size: 14px;
@@ -73,6 +76,9 @@ nav li:nth-of-type(3) {
 }
 .icon-list .wrapper {
   height: 2.9rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -94,6 +100,9 @@ nav li:nth-of-type(3) {
 .add-box {
   background: #fff;
   padding: 0.3rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   margin-bottom: 10px;
 }
@@ -140,6 +149,9 @@ nav li:nth-of-type(3) {
   border-bottom: 1px solid #dfdfdf;
 }
 .module-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   justify-content: space-between;
   padding: 0.2rem 0;
@@ -153,6 +165,9 @@ nav li:nth-of-type(3) {
   height: 100%;
 }
 .module-content .topic-btn {
+  display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
   display: flex;
   width: 3.2rem;
   height: 2.28rem;
@@ -170,6 +185,9 @@ nav li:nth-of-type(3) {
 .article {
   background: #fff;
   padding: 0.2rem 0.3rem;
+  display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
   display: flex;
   margin-bottom: 5px;
 }
@@ -182,6 +200,9 @@ nav li:nth-of-type(3) {
   height: 100%;
 }
 .article dl {
+  display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
   display: flex;
   width: 5.8rem;
   align-content: space-between;
@@ -209,6 +230,9 @@ nav li:nth-of-type(3) {
   line-height: 1.2rem;
 }
 .last-contanier {
+  display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
   display: flex;
   justify-content: space-between;
 }
