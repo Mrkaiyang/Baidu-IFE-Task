@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内务府</title>
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta content="telephone=no" name="format-detection" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<script src="../public/javascripts/libs/flexible.js"></script>
+	<script src="../public/javascripts/libs/zepto.min.js"></script>
+	<meta content="email=no" name="format-detection" />
+	<link rel="stylesheet" href="../public/stylesheets/reset.css">
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_1465804013_4354286.css">
+	<link rel="stylesheet" href="../public/stylesheets/main.css">
+	<link rel="stylesheet" href="../public/stylesheets//index.css">
+</head>
+<body>
+	<div class="wrapper">
+		<!-- 头部 -->
+		<div class="header">
+			<h1><i class="iconfont icon-logo"></i>还你一个完美的家</h1>
+		</div>
+		<!-- 轮播 -->
+		<div class="slide" >
+		    <ul>
+		        <li>
+		           <a href="#">
+		                <img src="../public/images/slider1.jpg" alt="">
+		            </a>
+		        </li>
+		        <li>
+		            <a href="#">
+		                <img src="../public/images/slider2.jpg" alt="">
+		            </a>
+		        </li>
+	
+		    </ul>
+		    <div class="dot">
+		        <span></span>
+		        <span></span>
+   			</div>
+		</div>
+			<!-- Icon -->
+   		<div class="icon">
+   			<div class="icon-box1">
+   				<a href="#"><dl><dt><i class="iconfont icon-shui"></i></dt><dd>水</dd></dl></i></a>
+	   			<a href="#"><dl><dt><i class="iconfont icon-shui"></i></dt><dd>水</dd></dl></i></a>
+	   			<a href="#"><dl><dt><i class="iconfont icon-shui"></i></dt><dd>水</dd></dl></i></a>
+	   			<a href="#"><dl><dt><i class="iconfont icon-shui"></i></dt><dd>水</dd></dl></i></a>
+   			</div>
+   			<div class="icon-box2">
+   				<a href="#"><dl><dt><i class="iconfont icon-shui"></i></dt><dd>水</dd></dl></i></a>
+	   			<a href="#"><dl><dt><i class="iconfont icon-shui"></i></dt><dd>水</dd></dl></i></a>
+	   			<a href="#"><dl><dt><i class="iconfont icon-shui"></i></dt><dd>水</dd></dl></i></a>
+	   			<a href="#"><dl><dt><i class="iconfont icon-shui"></i></dt><dd>水</dd></dl></i></a>
+   			</div>
+   		</div>
+	</div>
+	<script src="../public/javascripts/com/swipeSlide.min.js"></script>
+	<!-- 轮播调用 -->
+	<script>
+	 	$('.slide').swipeSlide({
+	        continuousScroll:true,
+	        speed : 3000,
+	        transitionType : 'cubic-bezier(0.22, 0.69, 0.72, 0.88)',
+	        firstCallback : function(i,sum,me){
+	            me.find('.dot').children().first().addClass('cur');
+	        },
+	        callback : function(i,sum,me){
+	            me.find('.dot').children().eq(i).addClass('cur').siblings().removeClass('cur');
+	        }
+	    });
+	</script>
+</body>
+</html>

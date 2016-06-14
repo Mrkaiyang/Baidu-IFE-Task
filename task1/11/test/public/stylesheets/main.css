@@ -1,0 +1,22 @@
+a,
+img {
+  -webkit-touch-callout: none;
+  /* 禁止长按链接与图片弹出菜单 */
+}
+html,
+body {
+  -webkit-user-select: none;
+  /* 禁止选中文本（如无文本选中需求，此为必选项） */
+  user-select: none;
+}
+body {
+  font-family: "Microsoft YaHei";
+}
+.wrapper {
+  max-width: 10rem;
+  overflow: hidden;
+  margin: 0 auto;
+}
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
