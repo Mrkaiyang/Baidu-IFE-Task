@@ -70,7 +70,7 @@
   background-color: #fff;
 }
 .icon {
-  padding-bottom: 0.18rem;
+  padding-bottom: 0.22rem;
   background: #f9f9f9;
 }
 .icon .icon-box1,
@@ -120,4 +120,80 @@
 .icon .icon-box1 a:last-child,
 .icon .icon-box2 a:last-child {
   margin-right: 0.78125rem;
+}
+.banner {
+  width: 100%;
+  height: 2.994792rem;
+}
+.banner .img-box {
+  width: 50%;
+  float: left;
+  height: 2.994792rem;
+}
+.banner .img-box img {
+  width: 100%;
+}
+.banner .banner-info {
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+.banner .banner-info dl {
+  margin-top: 0.585938rem;
+  text-align: center;
+}
+.banner .banner-info dl dt {
+  color: #091139;
+  font-weight: bold;
+  font-size: 0.390625rem;
+}
+.banner .banner-info dl dd {
+  margin-top: 0.195312rem;
+  color: #929294;
+  font-size: 0.208333rem;
+}
+.banner .banner-info .order {
+  display: block;
+  margin: 0 auto;
+  width: 2.65625rem;
+  height: 0.390625rem;
+  border: 1px solid #c9c9c9;
+  color: #68696a;
+  text-align: center;
+  margin-top: 0.520833rem;
+  line-height: 0.364583rem;
+  font-size: 0.182292rem;
+  word-spacing: 100px;
+  letter-spacing: 0.3125rem;
+  text-indent: 0.3125rem;
+}
+.home {
+  color: #091139 !important;
+  font-weight: 700!important;
+}
+.place-holder {
+  height: 1.015625rem;
+  width: 100%;
+}
+.nav {
+  height: 1.015625rem;
+  width: 100%;
+  background: #f9f9f9;
+  position: fixed;
+  bottom: 0px;
+}
+.nav a {
+  color: #494a4d;
+}
+.nav a li {
+  width: 33.333%;
+  float: left;
+  text-align: center;
+  line-height: 1.015625rem;
+}
+.nav .home span {
+  padding-left: 1.1rem;
+  padding-right: 1.1rem;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
 }
