@@ -171,8 +171,9 @@ var CalenderTool = (function(){
 				)}
 				else{
 					console.log(self.$Calender.parent().prev()[0])
-					self.$Calender.parent().prev().val(startYear+'/'+startMonth+'/'+starDate+'     ——     '+endYear+'/'+endtMonth+'/'+endDate);
+					self.$Calender.parent().prev().val(startYear+'/'+startMonth+'/'+starDate+'   ——   '+endYear+'/'+endtMonth+'/'+endDate);
 					self.opts.callBack()
+					self.$Calender.hide()
 				}
 
 			})
